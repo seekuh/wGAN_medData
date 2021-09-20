@@ -35,7 +35,7 @@ def softmax(logits):
 
 
 def Generator(n_samples, real_data, disc_manager,diminput, DIM):
-    noise = tf.random_normal([n_samples, diminput])
+    noise = tf.random.normal([n_samples, diminput])
     output = LeakyReLULayer('Generator.1', diminput, DIM, noise)
     output = LeakyReLULayer('Generator.2', DIM, DIM, output)
     output = LeakyReLULayer('Generator.3', DIM, DIM, output)
@@ -94,7 +94,7 @@ def GeneratorRNN(n_samples, diminput, DIM, seq_length, hidden_units,num_generate
         #W_out_G = tf.get_variable(name='W_out_G', shape=[hidden_units, num_generated_features], initializer=W_out_G_initializer)
         #b_out_G = tf.get_variable(name='b_out_G', shape=num_generated_features, initializer=b_out_G_initializer)
 
-        noise = tf.random_normal([n_samples, seq_length, 1])
+        noise = tf.random.normal([n_samples, seq_length, 1])
         cell = LSTMCell(num_units=hidden_units, state_is_tuple=True, bias_start=bias_start, initializer=lstm_initializer)
         #cell = LSTMCell(num_units=hidden_units, state_is_tuple=True)
         initial_state = cell.zero_state(96, tf.float32)
