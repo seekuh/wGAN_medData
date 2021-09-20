@@ -5,7 +5,8 @@
 import tflib as lib
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 def Batchnorm(name, axes, inputs, is_training=None, stats_iter=None, update_moving_stats=True, fused=True, labels=None, n_labels=None):
     """conditional batchnorm (dumoulin et al 2016) for BCHW conv filtermaps"""

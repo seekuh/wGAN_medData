@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import tflib as tflib
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 def ReLULayer(name, n_in, n_out, inputs):
     output = tflib.ops.linear.Linear(
