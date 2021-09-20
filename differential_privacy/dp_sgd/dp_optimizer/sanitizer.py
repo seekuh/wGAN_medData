@@ -14,7 +14,8 @@ from __future__ import division
 
 import collections
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from differential_privacy.dp_sgd.dp_optimizer import utils
 from differential_privacy.dp_sgd.dp_optimizer.sanitizers.basic import BasicClipper
